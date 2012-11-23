@@ -1,0 +1,51 @@
+{% extends "blog/abstract/base.html" %}
+{% load markup %}
+
+{% block head %}
+{{block.super}}
+<link href="{{STATIC_URL}}prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{{STATIC_URL}}prettify/prettify.js"></script>
+{% endblock %}
+
+{% block title %}{{block.super}} - {{article.title}}{% endblock %}
+
+{% block container %}
+	<div class="row">
+		<div class="offset2 span8">
+			<div id="article-header">
+				<h2>{{article.title}}</h2>
+				<h5>{{article.date_created}}</h5>
+			</div>
+			<div id="article-body">
+				{% if article.escape_html %}
+					{% if article.use_markdown %}
+						{{article.body|force_escape|markdown}}
+					{% else %}
+						{{article.body|force_escape}}
+					{% endif %}
+				{% else %}
+					{% if article.use_markdown %}
+						{{article.body|safe|markdown}}
+					{% else %}
+						{{article.body|safe}}
+					{% endif %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript">
+	var code_tags = document.getElementsByTagName('code');
+	for(var index in code_tags){
+		code_tags[index].className += " prettyprint";
+	}
+
+	code_tags = document.getElementsByTagName('pre');
+	for(var index in code_tags){
+		code_tags[index].className += " prettyprint";
+	}
+	prettyPrint();
+</script>
+{% endblock %}
