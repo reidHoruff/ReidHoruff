@@ -11,6 +11,7 @@ ADMINS = (
     ('root', 'root@root.com'),
 )
 
+
 MANAGERS = ADMINS
 
 DATABASES = {
