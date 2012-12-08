@@ -22,7 +22,7 @@ class Article(models.Model):
 
 	@staticmethod
 	def all_normal_by_date():
-		return Article.objects.all().order_by('date_created').filter(special_page=False)
+		return Article.objects.all().order_by('-date_created').filter(special_page=False)
 
 	def absolute_url(self):
 		return reverse('blog_view_article', args=[self.url])
