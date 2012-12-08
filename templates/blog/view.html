@@ -1,4 +1,7 @@
 {% extends "blog/abstract/base.html" %}
+
+{% block title %}{{block.super}} - {{article.title}}{% endblock %}
+
 {% load markup %}
 
 {% block head %}
@@ -6,8 +9,6 @@
 <link href="{{STATIC_URL}}prettify/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="{{STATIC_URL}}prettify/prettify.js"></script>
 {% endblock %}
-
-{% block title %}{{block.super}} - {{article.title}}{% endblock %}
 
 {% block container %}
 	<div class="row">

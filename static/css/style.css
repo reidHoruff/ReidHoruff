@@ -47,3 +47,14 @@ a:hover{
 
 #article-body p{
 }
+
+#main-tabs>.foo{
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 18px;
+	border-bottom: 2px solid orange;
+}
+
+#main-tabs>.foo:hover{
+	border-bottom: 2px solid #aaaaff;
+}

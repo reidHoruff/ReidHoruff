@@ -17,10 +17,14 @@
 	{% block body %}
 		<div class="container">
 			<div class="row">
-				<div class="offset3 span6 center">
+				<div class="span12 center">
 					<h1 id="my-name"><a href="{% url blog_view_home %}">Reid Horuff</a></h1>
-					<h6>A collection of things that are important to me</h6>
-					<h5><a href="#">contact</a> <a href="#">resume</a></h5>
+					<div id="main-tabs">
+						<a class="foo" href="{% url blog_view_home %}">home</a>
+						<a class="foo" href="#">contact</a>
+						<a class="foo" href="#">résumé</a>
+						<a class="foo" href="#">hire me</a>
+					</div>
 				</div>
 			</div>
 
