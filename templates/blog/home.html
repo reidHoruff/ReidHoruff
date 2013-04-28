@@ -8,7 +8,7 @@
 			{% for post in posts %}
 				<div class="home-post-preview">
 					<h2><a href="{{post.absolute_url}}">{{post.title}}</a></h2>
-					<h5>{{post.date_created}}</h5>
+					<h5>{{post.date_created|date:"F Y"}}</h5>
 				</div>
 			{% endfor %}
 		</div>
