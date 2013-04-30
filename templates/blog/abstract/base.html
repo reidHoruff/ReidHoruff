@@ -46,9 +46,13 @@
 
 		<script src="{{STATIC_URL}}js/grav.js"></script>
 		<script type='text/javascript'>
-			var canvas = document.getElementById("particle-canvas");
-			var pa = new ParticleAnimation(canvas, window.innerWidth, 100);
-			pa.start();
+			var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+
+			if(is_chrome){
+				var canvas = document.getElementById("particle-canvas");
+				var pa = new ParticleAnimation(canvas, window.innerWidth, 100);
+				pa.start();		
+			}
 		</script>
 
 	</body>

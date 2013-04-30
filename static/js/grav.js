@@ -81,20 +81,20 @@ function ParticleAnimation(canvas, width, height){
 			var currBall = this.balls[index];
 			currBall.move(Math.floor(this.iterations/100)%3 == 0);
 
-			for(var index in this.explosions){
+/*			for(var index in this.explosions){
 				var e = this.explosions[index];
 
 				if(e.hits(currBall)){
 					currBall.explode();
 				}
 			}
-
+*/
 			currBall.draw();
 		}
 
 		this.context.closePath();
 
-		for(var index in this.explosions){
+/*		for(var index in this.explosions){
 			var e = this.explosions[index];
 
 			if(e.active){
@@ -102,7 +102,7 @@ function ParticleAnimation(canvas, width, height){
 				e.draw();
 			}
 		}
-
+*/
 		this.grav_point_index++;
 		this.grav_point_index %= this.grav_points.length;
 		
