@@ -1,0 +1,105 @@
+
+<style type='text/css'>
+	body{
+	}
+
+	h2, p, label{
+		font-family: arial;
+		margin:0;
+		font-weight: normal;
+	}
+
+	#gravity-canvas{
+		border: 1px solid #ccc;
+		background: #ddd;
+	}
+
+	#instructions, #controls{
+		#border: 1px solid #cecece;
+		padding: 5px;
+		margin-bottom: 5px;
+	}
+
+	#instructionList{
+		display:none;
+	}
+
+	#controls{
+	}
+
+	#controls, #gravity-canvas{
+	}
+
+	#controls>label>a{
+		color:#aaaaff;
+	}
+</style>
+
+<script src="/static/content/gravity/jquery1.8.js"></script>
+<script src="/static/content/gravity/gravity.js"></script>
+
+<div class="center">
+	<div id="controls">
+		<label>gravity: <a href="javascript:toggleGravity()" id="toggleGravity">enabled</a></label>
+		<label>trail: <a href="javascript:toggleTrail()" id="toggleTrail">shown</a></label>
+		<label>bounds: <a href="javascript:toggleBounds()" id="toggleBounds">disabled</label></a>
+		<label>mass: <a href="javascript:toggleMass()" id="toggleMass">qubic</a></label>
+		<label>fabric: <a href="javascript:toggleFabric()" id="toggleFabric">hidden</label></a>
+	</div>
+
+	<canvas id="gravity-canvas">
+		<h1>Your browser isn't supported :(</h1>
+	</canvas>
+</div>
+
+<h3>Source</h3>
+The source for gravity.js is available on <a href="https://github.com/reidHoruff/gravity.js">Github.</a>
+
+<script type='text/javascript'>
+
+	var sim = new GravitySimulator( document.getElementById("gravity-canvas"), 750, 400);
+
+	function toggleGravity(){
+		sim.toggleGravity();
+		$("#toggleGravity").html(sim.gravityActivate?"enbaled":"disabled");
+	}
+
+	function toggleTrail(){
+		sim.toggleTrail();
+		$("#toggleTrail").html(sim.dispTrail?"shown":"hidden");
+	}
+
+	function toggleBounds(){
+		sim.toggleBounds();
+		$("#toggleBounds").html(sim.keepBounds?"enabled":"disabled");
+	}
+
+	function toggleMass(){
+		sim.toggleMassFunction();
+		$("#toggleMass").html(sim.massByVolume?"cubic":"squared");
+	}
+
+	function toggleFabric(){
+		sim.toggleFabric();
+		$("#toggleFabric").html(sim.showFabric?"shown":"hidden");
+	}
+
+	function toggleInstructions(){
+		$('#instructionList').slideToggle('fast', function(){
+
+		});
+	}
+
+	$('#gravity-canvas').bind('mousewheel', function(e){
+
+        if(e.originalEvent.wheelDelta > 0) {
+            sim.setZoom(0.01);
+        }
+        else{
+        	sim.setZoom(-0.01);
+        }
+    });
+
+	sim.start();
+	//init();
+</script>

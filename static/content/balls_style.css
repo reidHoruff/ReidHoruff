@@ -1,0 +1,22 @@
+body{
+	background: #f2f2f2;
+	font-family:arial;
+	font-size:14;
+}
+
+a{
+	text-decoration:none;
+	color:blue;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+#canvas{
+	border: 1px dashed grey;
+}
+
+#title{
+	font-size:26px;
+}
